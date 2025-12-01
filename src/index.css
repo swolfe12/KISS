@@ -1,0 +1,64 @@
+@import "./theme.css";
+@import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: theme(colors.gray.50);
+  color: theme(colors.gray.900);
+  -webkit-font-smoothing: antialiased;
+}
+@layer utilities {
+  /* Fade-in on scroll/initial load */
+  @keyframes fadeSlideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fadeSlideIn {
+    animation: fadeSlideIn 0.8s ease-out forwards;
+  }
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+
+  /* Fade-up stagger animation */
+  @keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    100% {
+      opacity: 1 !important;
+      transform: translateY(0);
+    }
+  }
+
+  .stagger {
+    animation: fadeUp 0.4s ease-out forwards;
+  }
+
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+}
