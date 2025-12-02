@@ -2,11 +2,10 @@ import { siteContent } from "../content/siteContent";
 import { Section } from "../components/Section";
 
 export function Hero() {
-  const { layout, title, subtitle, primaryCta, secondaryCta } =
-    siteContent.hero;
+  const { title, subtitle, primaryCta, secondaryCta } = siteContent.hero;
 
   return (
-    <Section layout={layout} className="relative overflow-hidden bg-white">
+    <Section className="relative overflow-hidden bg-white">
       <div className="text-center">
         <h1 className="animate-fadeSlideIn translate-y-4 text-4xl font-bold tracking-tight text-gray-900 opacity-0 sm:text-6xl">
           {title}

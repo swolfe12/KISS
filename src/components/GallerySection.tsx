@@ -3,10 +3,10 @@ import { Section } from "../components/Section";
 import { Card } from "../components/Card";
 
 export function GallerySection() {
-  const { title, subtitle, items, layout } = siteContent.gallery;
+  const { title, subtitle, items } = siteContent.gallery;
 
   return (
-    <Section layout={layout} className="bg-white py-24">
+    <Section className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-6 text-center">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           {title}
