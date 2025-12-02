@@ -4,6 +4,7 @@ import { Layout } from "./components/Layout";
 import { Footer } from "./components/Footer";
 import { Hero } from "./components/Hero";
 import { Home } from "./pages/Home";
+import { ShopPage } from "./pages/ShopPage";
 import { GallerySection } from "./components/GallerySection";
 import { ContactForm } from "./components/ContactForm";
 
@@ -41,6 +42,7 @@ export default function App() {
             </>
           }
         />
+        <Route path="/shop" element={<ShopPage />} />
       </Routes>
 
       <Footer />
