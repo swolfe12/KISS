@@ -1,6 +1,6 @@
 export function Home() {
   return (
-    <section className="bg-[theme(colors.paper-light)] py-20 text-center">
+    <section className="bg-[theme(colors.paper-light)] px-8 py-20 text-center">
       <h1 className="text-4xl font-bold tracking-tight text-gray-900">
         Welcome to Your Starter
       </h1>
