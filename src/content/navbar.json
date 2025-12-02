@@ -2,7 +2,7 @@
   "brand": "My Project",
   "links": [
     { "label": "Home", "href": "#" },
-    { "label": "About", "href": "#" },
+    { "label": "Heros", "href": "/heros" },
     { "label": "Contact", "href": "#" }
   ]
 }

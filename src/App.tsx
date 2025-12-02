@@ -1,23 +1,49 @@
+import { Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Layout } from "./components/Layout";
 import { Footer } from "./components/Footer";
 import { Hero } from "./components/Hero";
-import { ContactForm } from "./components/ContactForm";
 import { Home } from "./pages/Home";
 import { GallerySection } from "./components/GallerySection";
+import { ContactForm } from "./components/ContactForm";
+
+import { HerosPage } from "./pages/HerosPage";
 
 export default function App() {
   return (
     <>
       <Navbar />
-      <Layout>
-        <Hero />
-        <Home />
-        <GallerySection />
-        <ContactForm />
 
-        <Footer />
-      </Layout>
+      <Routes>
+        {/* HOME PAGE */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Layout>
+                <Hero />
+                <Home />
+                <GallerySection />
+                <ContactForm />
+              </Layout>
+            </>
+          }
+        />
+
+        {/* NEW HERO SHOWCASE PAGE */}
+        <Route
+          path="/heros"
+          element={
+            <>
+              <Layout>
+                <HerosPage />
+              </Layout>
+            </>
+          }
+        />
+      </Routes>
+
+      <Footer />
     </>
   );
 }

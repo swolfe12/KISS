@@ -27,19 +27,19 @@ export function ContactForm() {
 
   return (
     <Section layout={layout} className="rounded-2xl bg-white shadow-xl">
-      <div className="mx-auto max-w-xl text-center">
-        <h2 className="animate-fadeSlideIn translate-y-4 text-3xl font-bold tracking-tight text-gray-900 opacity-0 sm:text-4xl">
+      <div className="mx-auto w-[95%] max-w-xl text-center">
+        <h2 className="initial-fade text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           {siteContent.contact.title}
         </h2>
 
-        <p className="animate-fadeSlideIn mx-auto mt-4 max-w-xl translate-y-4 text-gray-600 opacity-0 delay-200">
+        <p className="initial-fade mx-auto mt-4 max-w-xl text-gray-600 delay-200">
           {siteContent.contact.subtitle}
         </p>
 
         {/* Form */}
         <form
           onSubmit={handleSubmit}
-          className="animate-fadeSlideIn mt-10 translate-y-4 space-y-6 text-left opacity-0 delay-300"
+          className="initial-fade mt-10 space-y-6 text-left delay-300"
         >
           {/* Name */}
           <div>
@@ -109,7 +109,7 @@ export function ContactForm() {
           {/* Success message */}
           {status === "success" && (
             <p
-              className="animate-fadeSlideIn mt-4 text-center text-green-600"
+              className="initial-fade mt-4 text-center text-green-600"
               aria-live="polite"
             >
               {siteContent.contact.successMessage}

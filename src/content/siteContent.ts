@@ -6,6 +6,7 @@ import type {
   ContactContent,
 } from "./types";
 
+// JSON imports
 import navbarJson from "./navbar.json";
 import heroJson from "./hero.json";
 import galleryJson from "./gallery.json";
