@@ -5,20 +5,29 @@
   "items": [
     {
       "title": "Beautiful Landscape",
-      "tags": ["Photography", "Nature"],
+      "tags": [
+        "Photography",
+        "Nature"
+      ],
       "description": "Mountains at sunrise in a soft golden glow.",
-      "image": "/images/default.jpg",
+      "image": "/uploads/holographic-intergalactic_-a-dose-of-inspiration.png",
       "href": "#"
     },
     {
       "title": "Urban Cityscape",
-      "tags": ["City", "Architecture"],
+      "tags": [
+        "City",
+        "Architecture"
+      ],
       "description": "Skyscrapers and evening lights.",
       "image": "/images/default.jpg"
     },
     {
       "title": "Minimal Product Shot",
-      "tags": ["Product", "Studio"],
+      "tags": [
+        "Product",
+        "Studio"
+      ],
       "description": "Clean aesthetic with soft shadows.",
       "image": "/images/default.jpg"
     },
