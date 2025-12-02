@@ -1,0 +1,22 @@
+:root {
+  --cms-primary: #6376f1ff;
+  --cms-bg: #f8f9ff;
+}
+
+body,
+.nc-app-frame-root {
+  background: var(--cms-bg) !important;
+}
+
+.nc-app-header {
+  background: var(--cms-primary) !important;
+}
+
+.nc-app-header h3 {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+}
+
+button {
+  border-radius: 8px !important;
+}
