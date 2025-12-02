@@ -1,8 +1,9 @@
 {
-  "layout": "boxed",
+  "layout": "image-left",
   "eyebrow": "Introducing",
   "title": "Build Something Beautiful",
   "subtitle": "A clean and minimal starter kit.",
   "primaryCta": { "label": "Get Started", "href": "#" },
-  "secondaryCta": { "label": "Learn More", "href": "#" }
+  "secondaryCta": { "label": "Learn More", "href": "#" },
+  "image": "/images/kiwis.jpg"
 }

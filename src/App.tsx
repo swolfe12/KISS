@@ -15,8 +15,9 @@ export default function App() {
         <Home />
         <GallerySection />
         <ContactForm />
+
+        <Footer />
       </Layout>
-      <Footer />
     </>
   );
 }

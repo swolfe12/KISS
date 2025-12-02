@@ -11,8 +11,8 @@ export function Section({
   children,
 }: SectionProps) {
   const layoutClasses: Record<Layout, string> = {
-    full: "py-48 px-24", // full-width, no margins
-    float: "my-24 mx-6 max-w-7xl rounded-2xl bg-white shadow-xl px-8 py-24 ", // floating container
+    full: "py-24 px-24", // full-width, no margins
+    float: "my-24 mx-6 max-w-7xl rounded-2xl shadow-xl px-8 py-24 ", // floating container
     edge: "my-24", // no side padding, full bleed bg
     tight: "my-16 px-6 max-w-5xl mx-auto", // smaller vertical spacing
     none: "", // truly raw

@@ -4,6 +4,7 @@ import { siteContent } from "../content/siteContent";
 import { Section } from "../components/Section";
 
 export function ContactForm() {
+  const { layout } = siteContent.contact;
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
   const [formData, setFormData] = useState({
     name: "",
@@ -25,7 +26,7 @@ export function ContactForm() {
   }
 
   return (
-    <Section className="rounded-2xl shadow-xl">
+    <Section layout={layout} className="rounded-2xl bg-white shadow-xl">
       <div className="w-xm mx-auto max-w-xl text-center">
         <h2 className="animate-fadeSlideIn translate-y-4 text-3xl font-bold tracking-tight text-gray-900 opacity-0 sm:text-4xl">
           {siteContent.contact.title}

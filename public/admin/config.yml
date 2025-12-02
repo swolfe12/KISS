@@ -37,15 +37,15 @@ collections:
         file: "src/content/hero.json"
         fields:
           - {
-              label: Layout,
+              label: Hero Layout,
               name: layout,
               widget: select,
-              options:
-                ["full", "boxed", "edge", "tight", "none", "split", "wide"],
+              options: ["centered", "image-left", "image-right", "image-bg"],
             }
           - { label: Eyebrow, name: eyebrow, widget: string }
           - { label: Title, name: title, widget: string }
           - { label: Subtitle, name: subtitle, widget: text }
+          - { label: Image, name: image, widget: image, required: false }
           - label: Primary CTA
             name: primaryCta
             widget: object
