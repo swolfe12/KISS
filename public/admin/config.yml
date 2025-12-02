@@ -8,105 +8,120 @@ public_folder: "/uploads"
 publish_mode: editorial_workflow
 
 collections:
-  #
-  # ░░░ NAVBAR CONTENT ░░░
-  #
+  # ------------------------
+  # NAVBAR
+  # ------------------------
   - name: navbar
     label: Navbar
-    file: "src/content/navbar.json"
-    fields:
-      - { label: Brand, name: brand, widget: string }
-      - label: Links
-        name: links
-        widget: list
+    files:
+      - name: navbarContent
+        label: Navbar Content
+        file: "src/content/navbar.json"
         fields:
-          - { label: Label, name: label, widget: string }
-          - { label: URL, name: href, widget: string }
+          - { label: Brand, name: brand, widget: string }
+          - label: Links
+            name: links
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: URL, name: href, widget: string }
 
-  #
-  # ░░░ HERO SECTION ░░░
-  #
+  # ------------------------
+  # HERO
+  # ------------------------
   - name: hero
     label: Hero Section
-    file: "src/content/hero.json"
-    fields:
-      - {
-          label: Layout,
-          name: layout,
-          widget: select,
-          options: ["full", "boxed", "edge", "tight", "none", "split", "wide"],
-        }
-      - { label: Eyebrow, name: eyebrow, widget: string }
-      - { label: Title, name: title, widget: string }
-      - { label: Subtitle, name: subtitle, widget: text }
-      - label: Primary CTA
-        name: primaryCta
-        widget: object
+    files:
+      - name: heroContent
+        label: Hero Content
+        file: "src/content/hero.json"
         fields:
-          - { label: Label, name: label, widget: string }
-          - { label: URL, name: href, widget: string }
-      - label: Secondary CTA
-        name: secondaryCta
-        widget: object
-        fields:
-          - { label: Label, name: label, widget: string }
-          - { label: URL, name: href, widget: string }
+          - {
+              label: Layout,
+              name: layout,
+              widget: select,
+              options:
+                ["full", "boxed", "edge", "tight", "none", "split", "wide"],
+            }
+          - { label: Eyebrow, name: eyebrow, widget: string }
+          - { label: Title, name: title, widget: string }
+          - { label: Subtitle, name: subtitle, widget: text }
+          - label: Primary CTA
+            name: primaryCta
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: URL, name: href, widget: string }
+          - label: Secondary CTA
+            name: secondaryCta
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: URL, name: href, widget: string }
 
-  #
-  # ░░░ GALLERY SECTION ░░░
-  #
+  # ------------------------
+  # GALLERY
+  # ------------------------
   - name: gallery
     label: Gallery
-    file: "src/content/gallery.json"
-    fields:
-      - {
-          label: Layout,
-          name: layout,
-          widget: select,
-          options: ["full", "boxed", "edge", "tight", "none", "split", "wide"],
-        }
-      - { label: Title, name: title, widget: string }
-      - { label: Subtitle, name: subtitle, widget: string, required: false }
-      - label: Items
-        name: items
-        widget: list
+    files:
+      - name: galleryContent
+        label: Gallery Content
+        file: "src/content/gallery.json"
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Image, name: image, widget: image }
           - {
-              label: Description,
-              name: description,
-              widget: text,
-              required: false,
+              label: Layout,
+              name: layout,
+              widget: select,
+              options:
+                ["full", "boxed", "edge", "tight", "none", "split", "wide"],
             }
-          - label: Tags
-            name: tags
+          - { label: Title, name: title, widget: string }
+          - { label: Subtitle, name: subtitle, widget: string, required: false }
+          - label: Items
+            name: items
             widget: list
-            required: false
-            field: { label: Tag, name: tag, widget: string }
-          - { label: Link, name: href, widget: string, required: false }
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Image, name: image, widget: image }
+              - {
+                  label: Description,
+                  name: description,
+                  widget: text,
+                  required: false,
+                }
+              - label: Tags
+                name: tags
+                widget: list
+                required: false
+                field: { label: Tag, name: tag, widget: string }
+              - { label: Link, name: href, widget: string, required: false }
 
-  #
-  # ░░░ CONTACT FORM ░░░
-  #
+  # ------------------------
+  # CONTACT
+  # ------------------------
   - name: contact
     label: Contact Section
-    file: "src/content/contact.json"
-    fields:
-      - {
-          label: Layout,
-          name: layout,
-          widget: select,
-          options: ["full", "boxed", "edge", "tight", "none", "split", "wide"],
-        }
-      - { label: Title, name: title, widget: string }
-      - { label: Subtitle, name: subtitle, widget: text }
-      - label: Fields
-        name: fields
-        widget: object
+    files:
+      - name: contactContent
+        label: Contact Content
+        file: "src/content/contact.json"
         fields:
-          - { label: Name Label, name: name, widget: string }
-          - { label: Email Label, name: email, widget: string }
-          - { label: Message Label, name: message, widget: string }
-      - { label: Submit Button Text, name: submitLabel, widget: string }
-      - { label: Success Message, name: successMessage, widget: string }
+          - {
+              label: Layout,
+              name: layout,
+              widget: select,
+              options:
+                ["full", "boxed", "edge", "tight", "none", "split", "wide"],
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: Subtitle, name: subtitle, widget: text }
+          - label: Fields
+            name: fields
+            widget: object
+            fields:
+              - { label: Name Label, name: name, widget: string }
+              - { label: Email Label, name: email, widget: string }
+              - { label: Message Label, name: message, widget: string }
+          - { label: Submit Button Text, name: submitLabel, widget: string }
+          - { label: Success Message, name: successMessage, widget: string }
