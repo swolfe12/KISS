@@ -1,0 +1,8 @@
+{
+  "layout": "boxed",
+  "eyebrow": "Introducing",
+  "title": "Build Something Beautiful",
+  "subtitle": "A clean and minimal starter kit.",
+  "primaryCta": { "label": "Get Started", "href": "#" },
+  "secondaryCta": { "label": "Learn More", "href": "#" }
+}

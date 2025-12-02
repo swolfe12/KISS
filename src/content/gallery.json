@@ -1,0 +1,26 @@
+{
+  "layout": "full",
+  "title": "Gallery",
+  "subtitle": "A collection of curated images and projects.",
+  "items": [
+    {
+      "title": "Beautiful Landscape",
+      "tags": ["Photography", "Nature"],
+      "description": "Mountains at sunrise in a soft golden glow.",
+      "image": "/images/default.jpg",
+      "href": "#"
+    },
+    {
+      "title": "Urban Cityscape",
+      "tags": ["City", "Architecture"],
+      "description": "Skyscrapers and evening lights.",
+      "image": "/images/default.jpg"
+    },
+    {
+      "title": "Minimal Product Shot",
+      "tags": ["Product", "Studio"],
+      "description": "Clean aesthetic with soft shadows.",
+      "image": "/images/default.jpg"
+    }
+  ]
+}
