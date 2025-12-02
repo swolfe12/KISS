@@ -1,7 +1,7 @@
-type Layout = "full" | "float" | "edge" | "tight" | "none" | "split" | "wide";
+import type { SectionLayout } from "../content/types";
 
 interface SectionProps {
-  layout?: Layout;
+  layout?: SectionLayout;
   className?: string;
   children: React.ReactNode;
 }
@@ -10,7 +10,7 @@ export function Section({
   className = "",
   children,
 }: SectionProps) {
-  const layoutClasses: Record<Layout, string> = {
+  const layoutClasses: Record<SectionLayout, string> = {
     full: "py-24 px-24", // full-width, no margins
     float: "my-24 mx-6 max-w-7xl rounded-2xl shadow-xl px-8 py-24 ", // floating container
     edge: "my-24", // no side padding, full bleed bg

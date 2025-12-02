@@ -4,7 +4,7 @@ import { siteContent } from "../content/siteContent";
 import { Section } from "../components/Section";
 
 export function ContactForm() {
-  const { layout } = siteContent.contact;
+  const layout = siteContent.contact.layout;
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
   const [formData, setFormData] = useState({
     name: "",

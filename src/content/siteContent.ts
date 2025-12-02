@@ -1,13 +1,19 @@
-import navbar from "../content/navbar.json";
-import hero from "../content/hero.json";
-import gallery from "../content/gallery.json";
-import contact from "../content/contact.json";
+import type {
+  SiteContent,
+  NavbarContent,
+  HeroContent,
+  GalleryContent,
+  ContactContent,
+} from "./types";
 
-export type HeroLayout = "centered" | "image-left" | "image-right" | "image-bg";
+import navbarJson from "./navbar.json";
+import heroJson from "./hero.json";
+import galleryJson from "./gallery.json";
+import contactJson from "./contact.json";
 
-export const siteContent = {
-  navbar,
-  hero,
-  gallery,
-  contact,
+export const siteContent: SiteContent = {
+  navbar: navbarJson as NavbarContent,
+  hero: heroJson as HeroContent,
+  gallery: galleryJson as GalleryContent,
+  contact: contactJson as ContactContent,
 };
