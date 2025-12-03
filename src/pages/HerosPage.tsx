@@ -33,7 +33,7 @@ export function HerosPage() {
               </h2>
             </Section>
             <div className="border shadow-sm">
-              <Hero hero={modifiedHero} />
+              <Hero {...modifiedHero} />
             </div>
           </div>
         );

@@ -1,12 +1,15 @@
 import { useState, useRef, useEffect } from "react";
-import { siteContent } from "../content/siteContent";
 
-export function Navbar() {
+type NavbarProps = {
+  brand?: string;
+  links?: { label: string; href: string }[];
+};
+
+export function Navbar({ brand = "Brand", links = [] }: NavbarProps) {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-  // Close menu with ESC + return focus
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") {
@@ -31,12 +34,12 @@ export function Navbar() {
             href="/"
             className="inline-block transform text-xl font-semibold transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.03] hover:text-black focus:outline focus:outline-2 focus:outline-blue-500"
           >
-            {siteContent.navbar.brand}
+            {brand}
           </a>
 
           {/* DESKTOP NAV */}
           <ul className="hidden gap-8 text-gray-700 sm:flex">
-            {siteContent.navbar.links.map(({ label, href }) => (
+            {links.map(({ label, href }) => (
               <li key={label}>
                 <a
                   href={href}
@@ -48,7 +51,7 @@ export function Navbar() {
             ))}
           </ul>
 
-          {/* MOBILE HAMBURGER BUTTON */}
+          {/* MOBILE HAMBURGER */}
           <button
             ref={buttonRef}
             aria-label={open ? "Close menu" : "Open menu"}
@@ -57,31 +60,30 @@ export function Navbar() {
             onClick={() => setOpen(!open)}
             className="relative z-50 flex h-6 w-8 flex-col items-center justify-between transition-transform duration-300 ease-out hover:scale-110 sm:hidden"
           >
-            {/* Top line */}
             <span
-              className={`block h-0.5 w-full rounded bg-black transition-all duration-300 ease-in-out ${open ? "translate-y-2 rotate-45" : ""} `}
-            ></span>
-
-            {/* Middle line */}
+              className={`block h-0.5 w-full rounded bg-black transition-all duration-300 ease-in-out ${open ? "translate-y-2 rotate-45" : ""}`}
+            />
             <span
-              className={`block h-0.5 w-full rounded bg-black transition-all duration-300 ease-in-out ${open ? "opacity-0" : "opacity-100"} `}
-            ></span>
-
-            {/* Bottom line */}
+              className={`block h-0.5 w-full rounded bg-black transition-all duration-300 ease-in-out ${open ? "opacity-0" : "opacity-100"}`}
+            />
             <span
-              className={`block h-0.5 w-full rounded bg-black transition-all duration-300 ease-in-out ${open ? "-translate-y-3.5 -rotate-45" : ""} `}
-            ></span>
+              className={`block h-0.5 w-full rounded bg-black transition-all duration-300 ease-in-out ${open ? "-translate-y-3.5 -rotate-45" : ""}`}
+            />
           </button>
         </nav>
       </header>
 
-      {/* SCRIM BACKDROP */}
+      {/* SCRIM */}
       <div
-        className={`fixed inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300 sm:hidden ${open ? "pointer-events-auto z-30 opacity-100" : "pointer-events-none z-0 opacity-0"} `}
+        className={`fixed inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300 sm:hidden ${
+          open
+            ? "pointer-events-auto z-30 opacity-100"
+            : "pointer-events-none z-0 opacity-0"
+        }`}
         onClick={() => setOpen(false)}
       ></div>
 
-      {/* PREMIUM MOBILE DRAWER */}
+      {/* MOBILE DRAWER */}
       <div
         id="mobile-menu"
         ref={menuRef}
@@ -91,23 +93,23 @@ export function Navbar() {
           open
             ? "pointer-events-auto z-40 translate-y-0 opacity-100"
             : "pointer-events-none z-0 -translate-y-10 opacity-0"
-        } `}
+        }`}
       >
         <ul className="flex flex-col items-center gap-8 text-xl text-gray-800">
-          {["Home", "About", "Contact"].map((item, i) => (
+          {links.map(({ label, href }, i) => (
             <li
-              key={item}
+              key={label}
               className={`transform transition-all duration-500 ${
                 open
                   ? `translate-y-0 opacity-100 delay-[${i * 100}ms]`
                   : "translate-y-4 opacity-0"
-              } `}
+              }`}
             >
               <a
-                href="#"
+                href={href}
                 className="inline-block transition-all duration-200 ease-out hover:scale-[1.05] hover:text-black focus:outline focus:outline-2 focus:outline-blue-500"
               >
-                {item}
+                {label}
               </a>
             </li>
           ))}

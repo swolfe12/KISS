@@ -3,7 +3,7 @@
 // ============================
 export type SectionLayout =
   | "full"
-  | "boxed"
+  | "float"
   | "edge"
   | "tight"
   | "none"

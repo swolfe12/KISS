@@ -1,12 +1,29 @@
-import { siteContent } from "../content/siteContent";
-import type { HeroContent } from "../content/types";
 import { Section } from "./Section";
 
-export function Hero({ hero }: { hero?: HeroContent }) {
-  const data = hero ?? siteContent.hero;
-  const { layout, title, subtitle, primaryCta, secondaryCta, image } = data;
+type HeroProps = {
+  title: string;
+  subtitle?: string;
+  layout: "centered" | "image-left" | "image-right" | "image-bg";
+  primary_cta_label?: string;
+  primary_cta_href?: string;
+  secondary_cta_label?: string;
+  secondary_cta_href?: string;
+  image?: string;
+};
 
-  // Shared CTA buttons (alignment changes depending on layout)
+export function Hero(data: HeroProps) {
+  const {
+    title,
+    subtitle,
+    layout,
+    primary_cta_label,
+    primary_cta_href,
+    secondary_cta_label,
+    secondary_cta_href,
+    image,
+  } = data;
+
+  // CTA buttons
   const CTAs = (
     <div
       className={
@@ -17,23 +34,27 @@ export function Hero({ hero }: { hero?: HeroContent }) {
             : "mt-10 flex justify-end gap-6"
       }
     >
-      <a
-        href={primaryCta.href}
-        className="initial-fade inline-block rounded-lg bg-black px-8 py-3 text-base font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800"
-      >
-        {primaryCta.label}
-      </a>
+      {primary_cta_label && primary_cta_href && (
+        <a
+          href={primary_cta_href}
+          className="initial-fade inline-block rounded-lg bg-black px-8 py-3 text-base font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800"
+        >
+          {primary_cta_label}
+        </a>
+      )}
 
-      <a
-        href={secondaryCta.href}
-        className="initial-fade inline-block rounded-lg border border-gray-300 px-8 py-3 text-base font-medium text-gray-700 transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-50"
-      >
-        {secondaryCta.label}
-      </a>
+      {secondary_cta_label && secondary_cta_href && (
+        <a
+          href={secondary_cta_href}
+          className="initial-fade inline-block rounded-lg border border-gray-300 px-8 py-3 text-base font-medium text-gray-700 transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-50"
+        >
+          {secondary_cta_label}
+        </a>
+      )}
     </div>
   );
 
-  // Shared text block
+  // Shared text
   const TextBlock = (
     <div
       className={
@@ -53,23 +74,24 @@ export function Hero({ hero }: { hero?: HeroContent }) {
         {title}
       </h1>
 
-      <p
-        className={
-          (layout === "image-right" ? "ml-auto " : "") +
-          "initial-fade mt-6 max-w-2xl text-lg delay-200 " +
-          (layout === "image-bg" ? "text-gray-200" : "text-gray-600")
-        }
-      >
-        {subtitle}
-      </p>
+      {subtitle && (
+        <p
+          className={
+            (layout === "image-right" ? "ml-auto " : "") +
+            "initial-fade mt-6 max-w-2xl text-lg delay-200 " +
+            (layout === "image-bg" ? "text-gray-200" : "text-gray-600")
+          }
+        >
+          {subtitle}
+        </p>
+      )}
 
       {CTAs}
     </div>
   );
 
-  // ------------------------------------------
-  // 1️⃣ CENTERED HERO
-  // ------------------------------------------
+  // Layout variations identical to your code:
+
   if (layout === "centered") {
     return (
       <Section className="relative overflow-hidden bg-white">
@@ -78,9 +100,6 @@ export function Hero({ hero }: { hero?: HeroContent }) {
     );
   }
 
-  // ------------------------------------------
-  // 2️⃣ IMAGE LEFT
-  // ------------------------------------------
   if (layout === "image-left") {
     return (
       <Section className="relative overflow-hidden bg-white">
@@ -96,9 +115,6 @@ export function Hero({ hero }: { hero?: HeroContent }) {
     );
   }
 
-  // ------------------------------------------
-  // 3️⃣ IMAGE RIGHT
-  // ------------------------------------------
   if (layout === "image-right") {
     return (
       <Section className="relative overflow-hidden bg-white">
@@ -114,9 +130,6 @@ export function Hero({ hero }: { hero?: HeroContent }) {
     );
   }
 
-  // ------------------------------------------
-  // 4️⃣ FULL BACKGROUND IMAGE + DARK OVERLAY
-  // ------------------------------------------
   if (layout === "image-bg") {
     return (
       <section
@@ -127,10 +140,8 @@ export function Hero({ hero }: { hero?: HeroContent }) {
           backgroundPosition: "center",
         }}
       >
-        {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/60"></div>
 
-        {/* Content (above overlay) */}
         <div className="relative z-10 p-10 text-white">{TextBlock}</div>
       </section>
     );
