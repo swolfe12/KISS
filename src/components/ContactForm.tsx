@@ -1,10 +1,20 @@
 import { useState } from "react";
-import { siteContent } from "../content/siteContent";
+import { Section } from "./Section";
 
-import { Section } from "../components/Section";
+type ContactProps = {
+  heading?: string;
+  subheading?: string;
+  recipient_email: string;
+  success_message?: string;
+  submit_label?: string;
+};
 
-export function ContactForm() {
-  const layout = siteContent.contact.layout;
+export function ContactForm({
+  heading = "Contact",
+  subheading,
+  success_message = "Thanks! I'll get back to you soon.",
+  submit_label = "Send",
+}: ContactProps) {
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
   const [formData, setFormData] = useState({
     name: "",
@@ -20,38 +30,34 @@ export function ContactForm() {
     e.preventDefault();
     setStatus("loading");
 
+    // TODO: call your Cloudflare/Netlify function
     await new Promise((res) => setTimeout(res, 1200));
 
     setStatus("success");
   }
 
   return (
-    <Section layout={layout} className="rounded-2xl bg-white shadow-xl">
-      <div className="mx-auto max-w-xl text-center">
-        <h2 className="animate-fadeSlideIn translate-y-4 text-3xl font-bold tracking-tight text-gray-900 opacity-0 sm:text-4xl">
-          {siteContent.contact.title}
+    <Section className="rounded-2xl bg-white shadow-xl">
+      <div className="mx-auto w-[95%] max-w-xl text-center">
+        <h2 className="initial-fade text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          {heading}
         </h2>
 
-        <p className="animate-fadeSlideIn mx-auto mt-4 max-w-xl translate-y-4 text-gray-600 opacity-0 delay-200">
-          {siteContent.contact.subtitle}
-        </p>
+        {subheading && (
+          <p className="initial-fade mx-auto mt-4 max-w-xl text-gray-600 delay-200">
+            {subheading}
+          </p>
+        )}
 
-        {/* Form */}
         <form
           onSubmit={handleSubmit}
-          className="animate-fadeSlideIn mt-10 translate-y-4 space-y-6 text-left opacity-0 delay-300"
+          className="initial-fade mt-10 space-y-6 text-left delay-300"
         >
-          {/* Name */}
           <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
-            >
-              {siteContent.contact.fields.name}
+            <label className="block text-sm font-medium text-gray-700">
+              Name
             </label>
             <input
-              id="name"
-              type="text"
               required
               value={formData.name}
               onChange={(e) => updateField("name", e.target.value)}
@@ -59,16 +65,11 @@ export function ContactForm() {
             />
           </div>
 
-          {/* Email */}
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              {siteContent.contact.fields.email}
+            <label className="block text-sm font-medium text-gray-700">
+              Email
             </label>
             <input
-              id="email"
               type="email"
               required
               value={formData.email}
@@ -77,16 +78,11 @@ export function ContactForm() {
             />
           </div>
 
-          {/* Message */}
           <div>
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-gray-700"
-            >
-              {siteContent.contact.fields.message}
+            <label className="block text-sm font-medium text-gray-700">
+              Message
             </label>
             <textarea
-              id="message"
               required
               rows={5}
               value={formData.message}
@@ -95,24 +91,16 @@ export function ContactForm() {
             />
           </div>
 
-          {/* Submit */}
           <button
-            type="submit"
             disabled={status === "loading"}
             className="flex w-full items-center justify-center rounded-lg bg-black px-6 py-3 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            {status === "loading"
-              ? "Sending..."
-              : siteContent.contact.submitLabel}
+            {status === "loading" ? "Sending..." : submit_label}
           </button>
 
-          {/* Success message */}
           {status === "success" && (
-            <p
-              className="animate-fadeSlideIn mt-4 text-center text-green-600"
-              aria-live="polite"
-            >
-              {siteContent.contact.successMessage}
+            <p className="initial-fade mt-4 text-center text-green-600">
+              {success_message}
             </p>
           )}
         </form>

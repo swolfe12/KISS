@@ -1,23 +1,37 @@
-import { Navbar } from "./components/Navbar";
+import { Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { Footer } from "./components/Footer";
-import { Hero } from "./components/Hero";
-import { ContactForm } from "./components/ContactForm";
-import { Home } from "./pages/Home";
-import { GallerySection } from "./components/GallerySection";
+import { ShopPage } from "./pages/ShopPage";
+import { HerosPage } from "./pages/HerosPage";
+import { DynamicPage } from "./pages/DynamicPage";
 
 export default function App() {
   return (
     <>
-      <Navbar />
-      <Layout>
-        <Hero />
-        <Home />
-        <GallerySection />
-        <ContactForm />
+      <Routes>
+        {/* HOME PAGE now CMS-driven */}
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <DynamicPage slug="/" />
+            </Layout>
+          }
+        />
 
-        <Footer />
-      </Layout>
+        {/* You can keep these static for now */}
+        <Route
+          path="/heros"
+          element={
+            <Layout>
+              <HerosPage />
+            </Layout>
+          }
+        />
+        <Route path="/shop" element={<ShopPage />} />
+      </Routes>
+
+      <Footer />
     </>
   );
 }

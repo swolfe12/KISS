@@ -1,8 +1,9 @@
 {
   "brand": "My Project",
   "links": [
-    { "label": "Home", "href": "#" },
-    { "label": "About", "href": "#" },
+    { "label": "Home", "href": "/" },
+    { "label": "Heros", "href": "/heros" },
+    { "label": "Shop", "href": "/shop" },
     { "label": "Contact", "href": "#" }
   ]
 }

@@ -8,13 +8,15 @@
 
 body {
   //background: theme(colors.gray.50);
-  //color: theme(colors.gray.900);
+  color: theme(colors.gray.900);
   -webkit-font-smoothing: antialiased;
 }
 
 @layer utilities {
-  /* Fade-in on scroll/initial load (hero, ctas, etc.) */
-  @keyframes fadeSlideIn {
+  /* --------------------------------------
+     Initial fade-in animation (NO HOVER)
+     -------------------------------------- */
+  @keyframes initialFade {
     0% {
       opacity: 0;
       transform: translateY(12px);
@@ -25,11 +27,28 @@ body {
     }
   }
 
-  .animate-fadeSlideIn {
-    animation: fadeSlideIn 0.8s ease-out forwards;
+  .initial-fade {
+    animation: initialFade 0.8s ease-out forwards;
   }
 
-  /* Fade-up stagger animation (gallery cards, tags, etc.) */
+  /* Delay utilities */
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+
+  /* --------------------------------------
+      Fade-up stagger for cards/tags
+      (separate from initial fade)
+     -------------------------------------- */
   @keyframes fadeUp {
     0% {
       opacity: 0;
@@ -43,19 +62,5 @@ body {
 
   .stagger {
     animation: fadeUp 0.4s ease-out forwards;
-  }
-
-  /* Shared delay utilities */
-  .delay-100 {
-    animation-delay: 100ms;
-  }
-  .delay-200 {
-    animation-delay: 200ms;
-  }
-  .delay-300 {
-    animation-delay: 300ms;
-  }
-  .delay-500 {
-    animation-delay: 500ms;
   }
 }
